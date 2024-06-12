@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model List<Sales>
+@{
+    ViewData["Title"] = "Sales Summary";
+}
+
+<h1>Sales Summary</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Segment</th>
+        <th>Country</th>
+        <th>Product</th>
+        <th>Discount</th>
+        <th>Units Sold</th>
+        <th>Manufacturing Price</th>
+        <th>Sale Price</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var sale in Model)
+    {
+        <tr>
+            <td>@sale.Segment</td>
+            <td>@sale.Country</td>
+            <td>@sale.Product</td>
+            <td>@sale.Discount</td>
+            <td>@sale.UnitsSold</td>
+            <td>@sale.ManufacturingPriceWithSymbol</td>
+            <td>@sale.SalePriceWithSymbol</td>
+            <td>@sale.Date.ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+    </tbody>
+</table>
